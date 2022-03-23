@@ -31,30 +31,26 @@ public class FakeApplicationUserDaoService implements ApplicationUserDao {
                 new ApplicationUser(
                         "khanh",
                         passwordEncoder.encode("password"),
-                        STUDENT.GetGrantedAuthorities(),
-                        true,
-                        true,
-                        true,
-                        true
-                ),
-                new ApplicationUser(
-                        "linda",
-                        passwordEncoder.encode("password"),
-                        ADMIN.GetGrantedAuthorities(),
-                        true,
-                        true,
-                        true,
-                        true
-                ),
-                new ApplicationUser(
-                        "tom",
-                        passwordEncoder.encode("password"),
-                        ADMINTRAINEE.GetGrantedAuthorities(),
-                        true,
-                        true,
-                        true,
-                        true
+                        STUDENT.GetGrantedAuthorities()
                 )
+//                new ApplicationUser(
+//                        "linda",
+//                        passwordEncoder.encode("password"),
+//                        ADMIN.GetGrantedAuthorities(),
+//                        true,
+//                        true,
+//                        true,
+//                        true
+//                ),
+//                new ApplicationUser(
+//                        "tom",
+//                        passwordEncoder.encode("password"),
+//                        ADMINTRAINEE.GetGrantedAuthorities(),
+//                        true,
+//                        true,
+//                        true,
+//                        true
+//                )
         );
         return applicationUsers;
     }
