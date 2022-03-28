@@ -9,6 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface BookRepository extends JpaRepository<Books, Long> {
-    @Query("select b from Books b where b.Title = ?1")
+    @Query("select b from Books b where b.Name = ?1")
     Optional<Books> findBooksByTitle(String title);
 }

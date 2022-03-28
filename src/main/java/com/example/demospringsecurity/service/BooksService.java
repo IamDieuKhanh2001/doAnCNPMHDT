@@ -30,7 +30,7 @@ public class BooksService {
         bookRepository.deleteById(bookId);
     }
     public void addNewBook(Books book) {
-        Optional<Books> bookOptional = bookRepository.findBooksByTitle(book.getTitle());
+        Optional<Books> bookOptional = bookRepository.findBooksByTitle(book.getName());
         if(bookOptional.isPresent()){
             throw new IllegalStateException("Book title have present in db");
         }

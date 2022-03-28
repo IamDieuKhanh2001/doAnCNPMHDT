@@ -19,7 +19,7 @@ public class Books {
     )
 
     private Long Book_ID;
-    private String Title;
+    private String Name;
     private int Pages;
     private LocalDate Publication_Date;
     private String Description;
@@ -34,8 +34,8 @@ public class Books {
     public Books() {
     }
 
-    public Books(String title, int pages, LocalDate publication_Date, String description, int price, int discount, int language_ID, int category_ID, int publisher_ID, int author_ID, String img) {
-        Title = title;
+    public Books(String name, int pages, LocalDate publication_Date, String description, int price, int discount, int language_ID, int category_ID, int publisher_ID, int author_ID, String img) {
+        Name = name;
         Pages = pages;
         Publication_Date = publication_Date;
         Description = description;
@@ -76,12 +76,12 @@ public class Books {
         return Book_ID;
     }
 
-    public String getTitle() {
-        return Title;
+    public String getName() {
+        return Name;
     }
 
-    public void setTitle(String title) {
-        Title = title;
+    public void setName(String name) {
+        Name = name;
     }
 
     public int getPages() {
