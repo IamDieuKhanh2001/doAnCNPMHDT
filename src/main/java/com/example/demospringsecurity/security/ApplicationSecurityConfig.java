@@ -51,8 +51,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilter(new JwtUsernameAndPasswordAuthenticationFilter(authenticationManager(), jwtConfig, secretKey))
                 .addFilterAfter(new JwtTokenVerifier(secretKey, jwtConfig), JwtUsernameAndPasswordAuthenticationFilter.class)
                 .authorizeRequests()
-                .antMatchers("/", "index", "/css/*", "/js/*","/register").permitAll() //Cho phep mac dinh k can login khi vao
-                .antMatchers("/api/**").hasRole(STUDENT.name())
+                .antMatchers("/", "index", "/css/*", "/js/*","/register","/api/publisher/**").permitAll() //Cho phep mac dinh k can login khi vao
+                .antMatchers("/api/**").hasAnyRole(STUDENT.name(),ADMIN.name())
                 .antMatchers("/feed/**").hasAnyRole(STUDENT.name(),ADMIN.name())
                 .anyRequest()
                 .authenticated();

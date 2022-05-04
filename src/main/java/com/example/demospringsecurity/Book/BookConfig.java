@@ -1,12 +1,14 @@
 package com.example.demospringsecurity.Book;
 
+import com.cloudinary.Cloudinary;
 import com.example.demospringsecurity.repository.BookRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 @Configuration
 public class BookConfig {
@@ -32,5 +34,15 @@ public class BookConfig {
 //            );
         };
     }
+//    @Bean
+//    public Cloudinary cloudinaryConfig() {
+//        Cloudinary cloudinary = null;
+//        Map config = new HashMap();
+//        config.put("cloud_name", "dpxgtmzld");
+//        config.put("api_key", "388178861795212");
+//        config.put("api_secret", "F-pUcToMhk18nnVmqLN5W8HeViw");
+//        cloudinary = new Cloudinary(config);
+//        return cloudinary;
+//    }
 
 }

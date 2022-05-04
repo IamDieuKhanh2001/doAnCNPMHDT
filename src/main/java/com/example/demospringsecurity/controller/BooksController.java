@@ -6,10 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 @RestController
-@RequestMapping("/feed")
+@RequestMapping("/api")
 public class BooksController {
 
     private final BooksService booksService;
@@ -22,12 +23,17 @@ public class BooksController {
     public void apiNotFound(){
         throw new IllegalStateException("You have enter wrong API");
     }
-    @GetMapping("/view")
+    @GetMapping("/book")
     public List<Books> getAllBooks(){
         System.out.println("getAllBooks");
         return booksService.getBooks();
     }
-    @DeleteMapping(path = "/delete/{bookId}")
+    @GetMapping("/book/id/{bookId}")
+    public Books getBookByID(@PathVariable("bookId") Long bookId){
+        System.out.println("getBook");
+        return booksService.getBookByID(bookId);
+    }
+    @DeleteMapping(path = "/delete/id/{bookId}")
     public void deleteBook(@PathVariable("bookId") Long bookId) {
         booksService.deleteBooks(bookId);
     }
@@ -35,7 +41,7 @@ public class BooksController {
 //    public void updateStudent(@PathVariable("bookId") Long bookId, @RequestParam(required = false) int price) {
 //        booksService.updateBooks(bookId, price);
 //    }
-    @PutMapping("/update/{bookId}")
+    @PutMapping("/update/id/{bookId}")
     public void updateBook(@PathVariable("bookId") Long bookId, @RequestBody Books book) {
         booksService.updateBook(bookId, book);
     }

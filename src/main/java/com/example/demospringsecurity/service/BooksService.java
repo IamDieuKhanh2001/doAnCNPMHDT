@@ -21,7 +21,11 @@ public class BooksService {
     public List<Books> getBooks(){
         return bookRepository.findAll();
     }
-
+    public Books getBookByID(Long bookId){
+        Books book = bookRepository.findById(bookId)
+                .orElseThrow(() -> new IllegalStateException("Book with id " + bookId + " does not exist"));
+        return book;
+    }
     public void deleteBooks(Long bookId) {
         boolean exists = bookRepository.existsById(bookId);
         if(!exists){

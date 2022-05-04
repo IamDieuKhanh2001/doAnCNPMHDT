@@ -47,7 +47,14 @@ public class ApplicationUserService implements UserDetailsService {
         //Nếu không trùng username, encode pwd và lưu vào db customer
         newUser.setUsername(user.getUsername());
         newUser.setPassword(passwordEncoder.encode(user.getPassword()));
-        newUser.setRole(user.getRole());
+        String role = "ROLE_STUDENT";
+        System.out.println(user.getRequestHashRole());
+        if(passwordEncoder.matches("ROLE_ADMIN",user.getRequestHashRole())){
+            boolean a = passwordEncoder.matches("ROLE_ADMIN",user.getRequestHashRole());
+            System.out.println(user.getRequestHashRole());
+            role = "ROLE_ADMIN";
+        }
+        newUser.setRole(role);
         return userRepository.save(newUser);
     }
 }
